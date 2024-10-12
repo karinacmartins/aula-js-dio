@@ -9,16 +9,26 @@
     -4 Acima de duas vezes, preço normal de etiqueta mais juros de 10%;
 */
 
+function aplicarDesconto(valor,desconto) {
+    return (valor - (valor * (desconto / 100)));
+}
+
+function aplicarJuros(valor,desconto) {
+    return (valor + (valor * (desconto / 100)));
+}
+
 const precoEtiqueta = 100;
-const formaDePagamento = 4 ;
+const formaDePagamento = 4;
 
 
 if (formaDePagamento === 1) {
-    console.log('O valor final com pagamento em débito é: R$ ' + (precoEtiqueta - (precoEtiqueta * 0.1)))
+    console.log('O valor final com pagamento em débito é: R$ ' + aplicarDesconto(precoEtiqueta, 10));
 } else if (formaDePagamento === 2) {
-    console.log('O valor final com pagamento no Dinheiro ou PIX é: R$ ' + (precoEtiqueta - (precoEtiqueta * 0.15)))
+    console.log('O valor final com pagamento no Dinheiro ou PIX é: R$ ' + aplicarDesconto(precoEtiqueta, 15));
 } else if (formaDePagamento === 3) {
-    console.log('O valor final com pagamento em duas vezes é: R$ ' + (precoEtiqueta))
-    } else {
-        console.log('O valor final acima de duas vezes é: R$ ' + (precoEtiqueta + (precoEtiqueta * 0.1)))
-    }
+    console.log('O valor final com pagamento em duas vezes é: R$ ' + (precoEtiqueta));
+} else {
+    console.log('O valor final acima de duas vezes é: R$ ' + aplicarJuros(precoEtiqueta, 10));
+}
+
+
